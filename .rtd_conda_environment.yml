@@ -8,11 +8,11 @@ dependencies:
   - geocat-viz=2020.2.18.1
   - netcdf4
   - cartopy
+  - sphinx
+  - sphinx_rtd_theme
+  - sphinx-gallery
   - pip
   - pip:
-    - sphinx
-    - sphinx_rtd_theme
     - matplotlib
-    - sphinx-gallery
     - mock
     - pillow
