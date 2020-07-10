@@ -37,11 +37,15 @@ Figure 4.
    This color scheme will work well for color blind impacted individuals and is black and white print friendly.
 
 """
+###############################################################################
+# Import packages:
+    
 import numpy as np
 import xarray as xr
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import matplotlib.pyplot as plt
+
 import geocat.datafiles as gdf
 from geocat.viz import cmaps as gvcmaps
 from geocat.viz import util as gvutil
@@ -83,7 +87,7 @@ def Plot(color,row, col, pos, title):
             "orientation": "vertical",
             "ticks": np.arange(0, 240, 20),
             "label": "",
-            "shrink": 0.8,})
+            "shrink": 0.8})
     
     # Use geocat.viz.util convenience function to set axes parameters without calling several matplotlib functions
     # Set axes limits, and tick values
@@ -110,16 +114,16 @@ def Plot(color,row, col, pos, title):
         ylabel="")
 
 #Plot first color map
-Plot(gvcmaps.BlAqGrYeOrRe, 2,2,1,"Rainbow Color Projection")
+Plot(gvcmaps.BlAqGrYeOrRe, 2,2,1,"Figure 1: \n Rainbow Color Projection")
 
 #plot second color map
-Plot('coolwarm', 2,2,2, "Coolwarm Color Projection")
+Plot('coolwarm', 2,2,2, "Figure 2: \n Coolwarm Color Projection")
 
 #plot third color map
-Plot('viridis', 2,2,3,"Viridis Color Projection")
+Plot('viridis', 2,2,3,"Figure 3: \n Viridis Color Projection")
 
 #Plot fourth color map
-Plot('Blues_r', 2,2,4, "Blues_r Color Projection")
+Plot('Blues_r', 2,2,4, "Figure 4: \n Blues_r Color Projection")
 
 fig.suptitle("Projections of Rain Fall Total", x=.5, y=.93, fontsize=18)
 
