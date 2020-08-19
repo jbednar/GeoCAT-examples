@@ -32,7 +32,12 @@ import geocat.datafiles as gdf
 
 # Open a netCDF data file using xarray default engine and
 # load the data into xarrays
+<<<<<<< HEAD
 ds = xr.open_dataset(gdf.get("netcdf_files/1994_256_FSD.nc"), decode_times=False)
+=======
+ds = xr.open_dataset(gdf.get("netcdf_files/1994_256_FSD.nc"),
+                     decode_times=False)
+>>>>>>> a5c87301b3ddc82aeb7fbd79f4b6cf290751cd07
 t = ds.FSD.isel(time=0)
 
 ###############################################################################
@@ -51,6 +56,7 @@ ax.add_feature(cfeature.LAND, facecolor="lightgray")
 ax.set_extent([128, 144, 34, 52], ccrs.PlateCarree())
 
 # Contourf-plot data (for filled contours)
+<<<<<<< HEAD
 pt = t.plot.contourf(
      ax=ax,
      transform=ccrs.PlateCarree(),
@@ -72,6 +78,30 @@ gl = ax.gridlines(crs=ccrs.PlateCarree(), draw_labels=True,
      linewidth=1,
      color="k",
      alpha=0.25)
+=======
+pt = t.plot.contourf(ax=ax,
+                     transform=ccrs.PlateCarree(),
+                     vmin=0,
+                     vmax=70,
+                     levels=15,
+                     cmap="inferno",
+                     cbar_kwargs={
+                         "extendrect": True,
+                         "orientation": "vertical",
+                         "ticks": np.arange(0, 71, 5),
+                         "label": ""
+                     })
+
+# Draw gridlines
+gl = ax.gridlines(crs=ccrs.PlateCarree(),
+                  draw_labels=True,
+                  dms=False,
+                  x_inline=False,
+                  y_inline=False,
+                  linewidth=1,
+                  color="k",
+                  alpha=0.25)
+>>>>>>> a5c87301b3ddc82aeb7fbd79f4b6cf290751cd07
 
 # Manipulate latitude and longitude gridline numbers and spacing
 gl.top_labels = False
@@ -81,8 +111,16 @@ gl.ylocator = mticker.FixedLocator([36, 38, 40, 42, 44, 46, 48, 50])
 gl.xlabel_style = {"rotation": 0, "size": 15}
 gl.ylabel_style = {"rotation": 0, "size": 15}
 
+<<<<<<< HEAD
 plt.title("Native Mercator Projection", loc="center", 
           y=1.05, size=15, fontweight="bold")
+=======
+plt.title("Native Mercator Projection",
+          loc="center",
+          y=1.05,
+          size=15,
+          fontweight="bold")
+>>>>>>> a5c87301b3ddc82aeb7fbd79f4b6cf290751cd07
 plt.title(t.units, loc="right", y=1.0, size=14)
 plt.title("free surface deviation", loc="left", y=1.0, size=14)
 
